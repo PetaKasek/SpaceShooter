@@ -1,0 +1,57 @@
+[gd_scene load_steps=11 format=3 uid="uid://dev704aesh7ng"]
+
+[ext_resource type="Texture2D" uid="uid://dx0qvwc7bqgjf" path="res://i5vbahe0-removebg-preview.png" id="1_a7v70"]
+[ext_resource type="Script" path="res://Main.gd" id="1_mu5sl"]
+[ext_resource type="Texture2D" uid="uid://cm4k6ole5kjwe" path="res://087146.jpg" id="2_p8yw3"]
+[ext_resource type="Script" path="res://player.gd" id="3_r2ri3"]
+[ext_resource type="PackedScene" uid="uid://d1yik8n4lvpjv" path="res://enemy.tscn" id="5_6lmmh"]
+[ext_resource type="PackedScene" uid="uid://ddbucx81hc8ys" path="res://bullet.tscn" id="6_7citb"]
+[ext_resource type="PackedScene" uid="uid://cbuqs41rl47g4" path="res://Barrier.tscn" id="7_r8ihj"]
+[ext_resource type="PackedScene" uid="uid://hi06sw68mdod" path="res://EnemyBullet.tscn" id="8_f2lxf"]
+[ext_resource type="Script" path="res://enemy_bullet.gd" id="9_pj35r"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xqf4w"]
+size = Vector2(112, 76)
+
+[node name="Main" type="Node2D"]
+position = Vector2(-2, 1)
+script = ExtResource("1_mu5sl")
+player_scene = null
+enemy_scene = null
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-915.926, 34.5562)
+scale = Vector2(1.56309, 3.05312)
+texture = ExtResource("2_p8yw3")
+offset = Vector2(750, 40)
+
+[node name="player" type="CharacterBody2D" parent="."]
+position = Vector2(276, -76)
+script = ExtResource("3_r2ri3")
+
+[node name="Player" type="CollisionShape2D" parent="player"]
+position = Vector2(-274, 489)
+shape = SubResource("RectangleShape2D_xqf4w")
+
+[node name="Sprite2D" type="Sprite2D" parent="player"]
+position = Vector2(-274, 483)
+scale = Vector2(0.232, 0.161)
+texture = ExtResource("1_a7v70")
+
+[node name="Enemy" parent="." instance=ExtResource("5_6lmmh")]
+position = Vector2(-470, -737)
+
+[node name="Bullet" parent="." instance=ExtResource("6_7citb")]
+position = Vector2(-126, -457)
+
+[node name="StaticBody2D" parent="." instance=ExtResource("7_r8ihj")]
+position = Vector2(-224, 279)
+
+[node name="StaticBody2D" parent="StaticBody2D" instance=ExtResource("7_r8ihj")]
+position = Vector2(226, 2)
+
+[node name="StaticBody2D" parent="StaticBody2D/StaticBody2D" instance=ExtResource("7_r8ihj")]
+position = Vector2(230, -2)
+
+[node name="Area2D" parent="." instance=ExtResource("8_f2lxf")]
+script = ExtResource("9_pj35r")

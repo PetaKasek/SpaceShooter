@@ -1,0 +1,59 @@
+[gd_scene load_steps=11 format=3 uid="uid://n3wxlvme7jdw"]
+
+[ext_resource type="Texture2D" uid="uid://dx0qvwc7bqgjf" path="res://i5vbahe0-removebg-preview.png" id="1_a7v70"]
+[ext_resource type="Script" path="res://Main.gd" id="1_mu5sl"]
+[ext_resource type="Script" path="res://enemy.gd" id="3_7bbhh"]
+[ext_resource type="Texture2D" uid="uid://bbin1o8ofeod1" path="res://space-invaders-color-version-space-invader-red-icon-png-icon-removebg-preview.png" id="3_amp15"]
+[ext_resource type="Script" path="res://player.gd" id="3_r2ri3"]
+[ext_resource type="Script" path="res://bullet.gd" id="4_memgw"]
+[ext_resource type="Texture2D" uid="uid://d33sjfd3ld5y6" path="res://k8LfsG-removebg-preview.png" id="5_mlxsy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xqf4w"]
+size = Vector2(206, 145)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k45u2"]
+size = Vector2(87, 77)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yv6is"]
+size = Vector2(11, 56.5)
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_mu5sl")
+
+[node name="player" type="CharacterBody2D" parent="."]
+script = ExtResource("3_r2ri3")
+
+[node name="Player" type="CollisionShape2D" parent="player"]
+position = Vector2(522, 565.5)
+shape = SubResource("RectangleShape2D_xqf4w")
+
+[node name="Sprite2D" type="Sprite2D" parent="player"]
+position = Vector2(522, 565)
+scale = Vector2(0.432, 0.328)
+texture = ExtResource("1_a7v70")
+
+[node name="Enemy" type="CharacterBody2D" parent="."]
+script = ExtResource("3_7bbhh")
+
+[node name="Enemy" type="CollisionShape2D" parent="Enemy"]
+position = Vector2(43.5, -49.5)
+shape = SubResource("RectangleShape2D_k45u2")
+
+[node name="Sprite2D" type="Sprite2D" parent="Enemy"]
+position = Vector2(43, -49)
+scale = Vector2(0.173, 0.188)
+texture = ExtResource("3_amp15")
+
+[node name="Bullet" type="Area2D" parent="."]
+position = Vector2(288, 146)
+script = ExtResource("4_memgw")
+
+[node name="Sprite2D" type="Sprite2D" parent="Bullet"]
+position = Vector2(236, 169)
+rotation = -1.57271
+scale = Vector2(0.874063, 0.820856)
+texture = ExtResource("5_mlxsy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bullet"]
+position = Vector2(232.5, 312.25)
+shape = SubResource("RectangleShape2D_yv6is")

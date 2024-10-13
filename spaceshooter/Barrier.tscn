@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://cbuqs41rl47g4"]
+
+[ext_resource type="Script" path="res://barier.gd" id="1_esrha"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_en0lw"]
+
+[node name="StaticBody2D" type="StaticBody2D"]
+script = ExtResource("1_esrha")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-1, -2)
+scale = Vector2(0.28418, 0.181396)
+texture = SubResource("NoiseTexture2D_en0lw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
