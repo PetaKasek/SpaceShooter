@@ -20,3 +20,5 @@ Ovládání
 
 Screenshoty
 
+![SC](https://github.com/user-attachments/assets/22d957c8-fb8f-40bd-b01e-f0e170addb69)
+
