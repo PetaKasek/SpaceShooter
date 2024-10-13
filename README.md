@@ -6,8 +6,9 @@ Toto je klasická hry Space Invaders vytvořený pomocí Godot Engine 4.0.2.
 
 1. Stáhněte si Godot Engine z [oficiálních stránek](https://godotengine.org/download) a nainstalujte jej.
     Otevrete tento repositář:
+   ```bash
     https://github.com/PetaKasek/SpaceShooter.git
-   
+   ```
 3. Otevřete projekt v Godotu.
 4. Spusťte hru kliknutím na tlačítko "Play" v editoru Godotu.
 
